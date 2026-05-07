@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "/*"
+  to = "/:splat.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/*.html"
+  to = "/:splat"
+  status = 301
+  force = true

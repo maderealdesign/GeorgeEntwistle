@@ -199,12 +199,13 @@ def build():
     for path,_ in PAGES:
         if path!='/':
             legacy=path.strip('/')
-            redirects.extend([f'/{legacy}.html {path} 301!',f'/{legacy} {path} 301!'])
-    redirects += ['/reviews /testimonials/ 301!','/reviews/ /testimonials/ 301!','/reviews.html /testimonials/ 301!', 'https://entwistlepaving.netlify.app/* '+ORIGIN+'/:splat 301!', 'https://www.entwistlepaving.co.uk/* '+ORIGIN+'/:splat 301!']
+            redirects.append(f'/{legacy}.html {path} 301!')
+    redirects += ['/reviews /testimonials/ 301!','/reviews.html /testimonials/ 301!', 'https://entwistlepaving.netlify.app/* '+ORIGIN+'/:splat 301!', 'https://www.entwistlepaving.co.uk/* '+ORIGIN+'/:splat 301!']
     (OUT/'_redirects').write_text('\n'.join(redirects)+'\n')
     (OUT/'site.webmanifest').write_text(json.dumps({'name':NAME,'short_name':'Entwistle Paving','start_url':'/','display':'browser','theme_color':'#292328','background_color':'#f8f6f2','icons':[{'src':'/assets/apple-touch-icon.png','sizes':'180x180','type':'image/png'}]}))
     # Preserve old externally linked image URLs while serving only the improved variants in pages.
     shutil.copytree(ROOT/'images',OUT/'images')
+    shutil.copy(ROOT/'assets/logo.png',OUT/'images/ge-logo.png')
     for name in ['favicon.svg','favicon-48x48.png','apple-touch-icon.png']:
         shutil.copy(ROOT/'assets'/name,OUT/name)
     print(f'Built {len(PAGES)} indexable pages, custom 404, {len(PHOTOS)} unique gallery photos, sitemap and redirects.')

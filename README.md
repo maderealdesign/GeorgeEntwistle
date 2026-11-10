@@ -11,7 +11,7 @@ Run `python3 build.py` to build all pages into `dist/`. No package installation 
 - `brand_content.py`: original full-width photo hero, five-face logo motif and expanded supporting page content.
 - `content/services.json`: five service pages and FAQs.
 - `content/photos.json`: accurate captions, alt text, categories and responsive file variants for 37 unique photos. Nine new photographs were added in November 2026. One exact duplicate from the old live gallery was omitted.
-- `assets/site.css`, `assets/brand.css` and `assets/site.js`: responsive presentation, exact logo palette, condensed Anton headings, reduced-motion-aware logo assembly, navigation, gallery filters and accessible photo viewer.
+- `assets/site.css`, `assets/brand.css` and `assets/site.js`: responsive presentation, exact logo palette, Akrobat Black headings using the supplied logo font, reduced-motion-aware logo assembly, navigation, gallery filters and accessible photo viewer.
 - `assets/photos/`: pre-generated 480px, 960px and larger WebP variants. Preserve original aspect ratios and do not upscale.
 - `images/`: original public image URLs retained for existing external links; pages use the optimised assets.
 
@@ -20,3 +20,5 @@ The site is rendered HTML and remains readable without JavaScript. Contact actio
 ## Search Console
 
 Production property: `sc-domain:entwistlepaving.co.uk`; sitemap: https://entwistlepaving.co.uk/sitemap.xml. Use only `maderealdesign@gmail.com` and verify that exact identity before every Search Console write.
+
+The supplied Akrobat Black font is packaged as a WOFF2 web-embedding asset. The supplied licence is preserved in `licenses/Akrobat-Free-Font-License.pdf`; do not distribute the font separately.

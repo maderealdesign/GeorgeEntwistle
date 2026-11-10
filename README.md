@@ -15,7 +15,7 @@ Run `python3 build.py` to build all pages into `dist/`. No package installation 
 - `assets/photos/`: pre-generated 480px, 960px and larger WebP variants. Preserve original aspect ratios and do not upscale.
 - `images/`: original public image URLs retained for existing external links; pages use the optimised assets.
 
-The site is rendered HTML and remains readable without JavaScript. Contact actions open the phone dialler or the visitor's email app. There is no contact submission form or analytics integration. Do not add unverified ratings, opening hours, addresses, project locations, accreditation or guarantees.
+The site is rendered HTML and remains readable without JavaScript. Contact actions open the phone dialler or the visitor's email app. Quote forms on the homepage and contact page submit to Netlify Forms (`quote-enquiry`). Detection must stay enabled on the Netlify project. `enquiry_forms.py` contains the shared field schema; `assets/forms.js` enhances native submission with error handling. `/thank-you/` and `/enquiry-privacy/` are noindex and excluded from the sitemap. Contact actions also offer phone and email. There is no analytics integration. Do not add unverified ratings, opening hours, addresses, project locations, accreditation or guarantees.
 
 ## Search Console
 

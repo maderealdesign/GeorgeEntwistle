@@ -118,3 +118,28 @@
     if (opener && document.contains(opener)) opener.focus({ preventScroll: true });
   });
 })();
+
+// Logo faces assemble once on entry; all content stays available without motion.
+(function () {
+  'use strict';
+  var preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (preference.matches || !('IntersectionObserver' in window)) return;
+  var targets = document.querySelectorAll('[data-reveal], [data-brand-mark]');
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+  document.documentElement.classList.add('motion-ready');
+  targets.forEach(function (target) { observer.observe(target); });
+  preference.addEventListener('change', function (event) {
+    if (event.matches) {
+      document.documentElement.classList.remove('motion-ready');
+      targets.forEach(function (target) { target.classList.add('is-visible'); });
+      observer.disconnect();
+    }
+  });
+})();
